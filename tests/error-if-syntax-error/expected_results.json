@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "status": "error",
+  "message": "Error in @exercism/rescript:\n\nSyntax error!\nsrc/ErrorIfSyntaxError.res:1:5-7\n\n1 │ this is not valid rescript code\n2 │ \n\nconsecutive statements on a line must be separated by ';' or a newline"
+}

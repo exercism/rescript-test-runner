@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "status": "error",
+  "message": "We've found a bug for you!\ntests/ErrorIfEmptySolution_test.res:8:35-39\n\n 6 │ \n 7 │ test(\"Say Hi!\", () => {\n 8 │   stringEqual(~message=\"Say Hi!\", hello(), \"Hello, World!\")\n 9 │ })\n10 │ \n\nThe value hello can't be found"
+}

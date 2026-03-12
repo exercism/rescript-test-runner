@@ -1,0 +1,8 @@
+{
+  "name": "rescript-test-runner",
+  "private": true,
+  "dependencies": {
+    "rescript": "12.2.0",
+    "rescript-test": "8.0.0"
+  }
+}

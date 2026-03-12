@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "status": "fail",
+  "message": "1/3: no name given\n  PASS - no name given\n2/3: a name given\n  FAIL - a name given\n    ---\n    operator: stringEqual\n    left:  One for you, one for me.\n    right: One for Alice, one for me.\n    ...\n3/3: another name given\n  FAIL - another name given\n    ---\n    operator: stringEqual\n    left:  One for you, one for me.\n    right: One for Bob, one for me.\n    ...\n\n# Ran 3 tests (3 assertions)\n# 1 passed\n# 2 failed"
+}

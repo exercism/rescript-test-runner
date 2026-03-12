@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "status": "fail",
+  "message": "1/1: Say Hi!\n  FAIL - Say Hi!\n    ---\n    operator: stringEqual\n    left:  Goodbye, Mars!\n    right: Hello, World!\n    ...\n\n# Ran 1 tests (1 assertions)\n# 0 passed\n# 1 failed"
+}
