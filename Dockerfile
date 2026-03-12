@@ -1,4 +1,4 @@
-FROM node:alpine3.23 AS deps
+FROM --platform=linux/amd64 node:alpine3.23 AS deps
 
 WORKDIR /opt/test-runner
 COPY package.json ./
