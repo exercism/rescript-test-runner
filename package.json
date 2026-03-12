@@ -1,5 +1,11 @@
 {
-  "name": "rescript-test-runner",
+  "name": "@exercism/rescript-test-runner",
+  "description": "Automated test runner for exercism solutions in ReScript.",
+  "license": "AGPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/exercism/rescript-test-runner"
+  },
   "private": true,
   "dependencies": {
     "rescript": "12.2.0",

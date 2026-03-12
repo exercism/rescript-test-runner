@@ -28,8 +28,8 @@ jobs:
           push: false
           load: true
           tags: exercism/rescript-test-runner
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-from: type=gha,scope=buildkit-v2
+          cache-to: type=gha,mode=max,scope=buildkit-v2
 
       - name: Run Tests in Docker
         run: bin/run-tests-in-docker.sh
