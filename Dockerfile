@@ -7,7 +7,7 @@ RUN npm install --omit=dev \
     && find node_modules \( -name '*.d.ts' -o -name 'README*' -o -name 'CHANGELOG*' -o -name 'LICENSE*' -o -name '*.md' \) -delete
 
 
-FROM alpine:3.23
+FROM --platform=linux/amd64 alpine:3.23
 
 RUN apk add --no-cache bash nodejs jq
 
