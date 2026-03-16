@@ -83,7 +83,7 @@ cd "${tmp_dir}"
 compile_exit=0
 compile_output="$(node_modules/.bin/rescript build 2>&1)" || compile_exit=$?
 
-if [[ "${compile_exit}" -ne 0 ]]; then
+if (( compile_exit != 0 )); then
   message="$(normalize_compile_output "${compile_output}")"
   jq -n --arg msg "${message}" '{version: 1, status: "error", message: $msg}' > "${results_file}"
   echo "${slug}: error"
