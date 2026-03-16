@@ -91,8 +91,7 @@ if (( compile_exit != 0 )); then
 fi
 
 test_exit=0
-test_output="$(node node_modules/rescript-test/bin/retest.mjs
-  "tests/${pascal_slug}_test.res.js" 2>&1)" || test_exit=$?
+test_output="$(node node_modules/rescript-test/bin/retest.mjs "tests/${pascal_slug}_test.res.js" 2>&1)" || test_exit=$?
 
 if (( test_exit != 0 )); then
   message="$(normalize_output "${test_output}")"
