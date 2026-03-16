@@ -94,7 +94,7 @@ test_exit=0
 test_output="$(node node_modules/rescript-test/bin/retest.mjs
   "tests/${pascal_slug}_test.res.js" 2>&1)" || test_exit=$?
 
-if [[ "${test_exit}" -ne 0 ]]; then
+if (( test_exit != 0 )); then
   message="$(normalize_output "${test_output}")"
   jq -n --arg msg "${message}" '{version: 1, status: "fail", message: $msg}' > "${results_file}"
   echo "${slug}: fail"
