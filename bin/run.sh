@@ -55,8 +55,8 @@ mkdir -p "${output_dir}"
 echo "${slug}: testing..."
 
 if ! tmp_dir=$(mktemp -d "/tmp/exercism-verify-${slug}-XXXXXX"); then
-    jq -n '{version: 1, status: "error", message: "The test runner failed to create the temporary directory for your test run. Please open a thread on the Exercism forums.", tests: []}' > "${output_dir}/results.json"
-    exit 1
+  jq -n '{version: 1, status: "error", message: "The test runner failed to create the temporary directory for your test run. Please open a thread on the Exercism forums.", tests: []}' > "${output_dir}/results.json"
+  exit 1
 fi
 tmp_dir="$(realpath "${tmp_dir}")"  # resolve /tmp -> /private/tmp on macOS
 trap 'rm -rf "$tmp_dir"' EXIT
