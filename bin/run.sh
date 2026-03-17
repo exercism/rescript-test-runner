@@ -61,9 +61,9 @@ fi
 tmp_dir="$(realpath "${tmp_dir}")"  # resolve /tmp -> /private/tmp on macOS
 trap 'rm -rf "$tmp_dir"' EXIT
 
-cp -r "${solution_dir}/src"          "${tmp_dir}/" 2>/dev/null || true
-cp -r "${solution_dir}/tests"        "${tmp_dir}/" 2>/dev/null || true
-cp    "${solution_dir}/package.json" "${tmp_dir}/" 2>/dev/null || true
+cp -r "${solution_dir}/src"           "${tmp_dir}/" 2>/dev/null || true
+cp -r "${solution_dir}/tests"         "${tmp_dir}/" 2>/dev/null || true
+cp    "${solution_dir}/package.json"  "${tmp_dir}/" 2>/dev/null || true
 cp    "${solution_dir}/rescript.json" "${tmp_dir}/" 2>/dev/null || true
 
 mkdir -p "${tmp_dir}/node_modules"
