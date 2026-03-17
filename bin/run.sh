@@ -89,10 +89,7 @@ ln -s "${node_modules}/.bin" "${tmp_dir}/node_modules/.bin"
 
 cd "${tmp_dir}"
 
-compile_exit=0
-compile_output="$(node_modules/.bin/rescript build 2>&1)" || compile_exit=$?
-
-if (( compile_exit != 0 )); then
+if ! compile_output="$(node_modules/.bin/rescript build 2>&1)";  then
   message="$(normalize_compile_output "${compile_output}")"
   jq -n --arg msg "${message}" '{version: 1, status: "error", message: $msg}' > "${results_file}"
   exit 1
