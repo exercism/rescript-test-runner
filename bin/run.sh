@@ -82,7 +82,7 @@ fi
 # Symlink everything else to avoid copying.
 for entry in "${node_modules}/"*; do
   name="${entry##*/}"
-  [[ "${name}" == "rescript-test" || "${name}" == ".bin" ]] && continue
+  [[ "${name}" == "rescript-test" ]] && continue
   ln -s "${entry}" "${tmp_dir}/node_modules/${name}"
 done
 ln -s "${node_modules}/.bin" "${tmp_dir}/node_modules/.bin"
