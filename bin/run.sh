@@ -62,13 +62,23 @@ tmp_dir="$(realpath "${tmp_dir}")"  # resolve /tmp -> /private/tmp on macOS
 trap 'rm -rf "$tmp_dir"' EXIT
 
 for item in src tests package.json rescript.json; do
-  cp -r "${solution_dir}/${item}" "${tmp_dir}/" 2>/dev/null || true
+  path="${solution_dir}/${item}"
+  if [[ ! -e "${path}" ]]; then
+    message="The test runner encountered an error copying ${path} to its working folder during your run. Please open a thread on the Exercism forums."
+    jq -n --arg msg "${message}" '{version: 1, status: "error", message: $msg}' > "${results_file}"
+    exit 1
+  fi
+  cp -r "${path}" "${tmp_dir}/"
 done
 
 mkdir -p "${tmp_dir}/node_modules"
 
 # rescript panics if it can't write to the node_modules during build
-cp -r "${node_modules}/rescript-test" "${tmp_dir}/node_modules/rescript-test"
+if ! cp -r "${node_modules}/rescript-test" "${tmp_dir}/node_modules/rescript-test"; then
+  jq -n '{version: 1, status: "error", message: "The test runner encountered an error copying the rescript-test framework to its working folder during your run. Please open a thread on the Exercism forums."}' > "${results_file}"
+  exit 1
+fi
+
 # Symlink everything else to avoid copying.
 for entry in "${node_modules}/"*; do
   name="${entry##*/}"
