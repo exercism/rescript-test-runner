@@ -87,7 +87,7 @@ for entry in "${node_modules}/"*; do
 done
 ln -s "${node_modules}/.bin" "${tmp_dir}/node_modules/.bin"
 
-cd "${tmp_dir}"
+cd "${tmp_dir}" || exit 1
 
 if ! compile_output="$(node_modules/.bin/rescript build 2>&1)";  then
   message="$(normalize_compile_output "${compile_output}")"
