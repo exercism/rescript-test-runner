@@ -63,12 +63,11 @@ trap 'rm -rf "$tmp_dir"' EXIT
 
 for item in src tests package.json rescript.json; do
   path="${solution_dir}/${item}"
-  if [[ ! -e "${path}" ]]; then
+  if ! cp -r "${path}" "${tmp_dir}/"; then
     message="The test runner encountered an error copying ${path} to its working folder during your run. Please open a thread on the Exercism forums."
     jq -n --arg msg "${message}" '{version: 1, status: "error", message: $msg}' > "${results_file}"
     exit 1
   fi
-  cp -r "${path}" "${tmp_dir}/"
 done
 
 mkdir -p "${tmp_dir}/node_modules"
