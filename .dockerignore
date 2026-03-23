@@ -4,6 +4,7 @@
 .gitattributes
 .gitignore
 Dockerfile
+node_modules/
 bin/run-in-docker.sh
 bin/run-tests-in-docker.sh
 bin/run-tests.sh

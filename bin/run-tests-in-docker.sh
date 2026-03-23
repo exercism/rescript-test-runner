@@ -16,7 +16,7 @@
 set -e
 
 # Build the Docker image
-docker build --rm -t exercism/rescript-test-runner .
+docker build --rm --load -t exercism/rescript-test-runner .
 
 # Run the Docker image using the settings mimicking the production environment
 docker run \
