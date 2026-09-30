@@ -91,13 +91,13 @@ cd "${tmp_dir}" || exit 1
 if ! compile_output="$(node_modules/.bin/rescript build 2>&1)";  then
   message="$(normalize_compile_output "${compile_output}")"
   jq -n --arg msg "${message}" '{version: 1, status: "error", message: $msg}' > "${results_file}"
-  exit 1
+  exit
 fi
 
 if ! test_output="$(node node_modules/rescript-test/bin/retest.mjs "tests/${pascal_slug}_test.res.js" 2>&1)"; then
   message="$(normalize_output "${test_output}")"
   jq -n --arg msg "${message}" '{version: 1, status: "fail", message: $msg}' > "${results_file}"
-  exit 1
+  exit
 fi
 
 jq -n '{version: 1, status: "pass"}' > "${results_file}"
